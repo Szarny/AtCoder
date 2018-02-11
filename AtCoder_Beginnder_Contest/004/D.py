@@ -1,1 +1,4 @@
-print(int(input()) * 2)
+def main():
+    
+
+main()
