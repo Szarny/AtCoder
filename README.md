@@ -3,22 +3,22 @@
 AtCoder Contest Records.
 http://atcoder.jp/user/Szarny
 
-- ✔:       Solve
-- ✘:      Not Solve
+- ✅:       Solve
+- ❌:      Not Solve
 - (blank): Yet
 
 ## AtCoder Beginners Contest
 
 | Contest | A | B | C | D | Rank |
 |:---------:|:---:|:---:|:---:|:---:|:---:|
-|  ABC001  |✔|✔|||N/A|
-|  ABC002  |✔|✔|✔|✔|N/A|
-|  ABC003  |✔|✔|✔|✘|N/A|
-|  ABC004  |✔|✔|✔||N/A|
-|  ABC005  |✔|✔|✔||N/A|
-|  ABC006  |✔|✔|✘||N/A|
-|  ABC007  |✔|✔|✔|✘|N/A|
-|  ABC008  |✔|✔|✘||N/A|
+|  ABC001  |✅|✅|||N/A|
+|  ABC002  |✅|✅|✅|✅|N/A|
+|  ABC003  |✅|✅|✅|❌|N/A|
+|  ABC004  |✅|✅|✅||N/A|
+|  ABC005  |✅|✅|✅||N/A|
+|  ABC006  |✅|✅|❌||N/A|
+|  ABC007  |✅|✅|✅|❌|N/A|
+|  ABC008  |✅|✅|❌||N/A|
 |  ABC009  |||||N/A|
 |  ABC010  |||||N/A|
 |  ABC011  |||||N/A|
@@ -92,12 +92,12 @@ http://atcoder.jp/user/Szarny
 |  ABC079  |||||N/A|
 |  ABC080  |||||N/A|
 |  ABC081  |||||N/A|
-|  ABC082  |✔|✔|✔|✘|N/A|
-|  ABC083  |✔|✔|✔|✔|N/A|
-|  ABC084  |✔|✔|✔|✘|N/A|
-|  ABC085  |✔|✔|✔|✘|794th|
-|  ABC086  |✔|✔|✔||66th|
-|  ABC087  |✔|✔|✔|✘|250th|
+|  ABC082  |✅|✅|✅|❌|N/A|
+|  ABC083  |✅|✅|✅|✅|N/A|
+|  ABC084  |✅|✅|✅|❌|N/A|
+|  ABC085  |✅|✅|✅|❌|794th|
+|  ABC086  |✅|✅|✅||66th|
+|  ABC087  |✅|✅|✅|❌|250th|
 
 ## AtCoder Regular Contest
 
