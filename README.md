@@ -10,7 +10,7 @@ http://atcoder.jp/user/Szarny
 ## AtCoder Beginners Contest
 
 | Contest | A | B | C | D | Rank |
-|:---------:|:---:|:---:|:---:|:---:|:---:|
+|:---------:|:----:|:----:|:----:|:----:|:----:|
 |  ABC001  |✅|✅|||N/A|
 |  ABC002  |✅|✅|✅|✅|N/A|
 |  ABC003  |✅|✅|✅|❌|N/A|
