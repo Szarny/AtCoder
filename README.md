@@ -3,8 +3,8 @@
 AtCoder Contest Records.
 http://atcoder.jp/user/Szarny
 
-- ✅:       Solve
-- ❌:      Not Solve
+- ✅:      Solved
+- ❌:      Not Solved
 - (blank): Yet
 
 ## AtCoder Beginners Contest
@@ -98,6 +98,7 @@ http://atcoder.jp/user/Szarny
 |  ABC085  |✅|✅|✅|❌|794th|
 |  ABC086  |✅|✅|✅||66th|
 |  ABC087  |✅|✅|✅|❌|250th|
+|  ABC088  |✅|✅|✅|✅|318th|
 
 ## AtCoder Regular Contest
 
