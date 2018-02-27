@@ -24,6 +24,14 @@ def dim2input(N):
         li.append(list(map(int, input())))
     return li
 
+""" input template
+S = input()
+N = int(input())
+L = list(map(int, input().split()))
+a, b = list(map(int, input().split()))
+SL = list(input())
+"""
+
 # --------------------------------------------
 
 dp = None

@@ -24,11 +24,31 @@ def dim2input(N):
         li.append(list(map(int, input())))
     return li
 
+""" input template
+S = input()
+N = int(input())
+L = list(map(int, input().split()))
+a, b = list(map(int, input().split()))
+SL = list(input())
+"""
+
 # --------------------------------------------
 
 dp = None
 
 def main():
-    pass
+    N = int(input())
+    A = list(map(int, input().split()))
+
+    op = 0
+
+    while True:
+        for a in A:
+            if a % 2 != 0:
+                print(op)
+                return
+
+        A = list(map(lambda a:a//2, A))
+        op += 1
 
 main()

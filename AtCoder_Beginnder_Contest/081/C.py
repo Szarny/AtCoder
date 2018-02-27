@@ -24,11 +24,41 @@ def dim2input(N):
         li.append(list(map(int, input())))
     return li
 
+""" input template
+S = input()
+N = int(input())
+L = list(map(int, input().split()))
+a, b = list(map(int, input().split()))
+SL = list(input())
+"""
+
 # --------------------------------------------
 
 dp = None
 
 def main():
-    pass
+    N, K = list(map(int, input().split()))
+    A = list(input().split())
+
+    D = collections.defaultdict(lambda: 0)
+
+    for a in A:
+        D[a] += 1
+
+    L = []
+    for v in D.values():
+        L.append(v)
+
+    L.sort(reverse=True)
+
+    i = 0
+    S = 0
+    U = min(K, len(L))
+    while i < U:
+        S += L[i]
+        i += 1
+
+    print(sum(L) - S)
+
 
 main()
