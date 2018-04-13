@@ -22,6 +22,7 @@ def to_bin(x):
 dp = None
 
 def main():
-    pass
+    N = int(input())
+    print(N//3)
 
 main()
