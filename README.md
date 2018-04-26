@@ -99,7 +99,7 @@ http://atcoder.jp/user/Szarny
 |  ABC086  |✅|✅|✅||66th|
 |  ABC087  |✅|✅|✅|❌|250th|
 |  ABC088  |✅|✅|✅|✅|318th|
-|  ABC089  |||||N/A|
+|  ABC089  |✅|✅|✅|❌|N/A|
 
 ## AtCoder Regular Contest
 
