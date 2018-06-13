@@ -13,7 +13,7 @@ http://atcoder.jp/user/Szarny
 |:---------:|:----:|:----:|:----:|:----:|:----:|
 |  ABC001  |✅|✅|||N/A|
 |  ABC002  |✅|✅|✅|✅|N/A|
-|  ABC003  |✅|✅|✅|❌|N/A|
+|  ABC003  |✅|✅|✅|✅|N/A|
 |  ABC004  |✅|✅|✅||N/A|
 |  ABC005  |✅|✅|✅||N/A|
 |  ABC006  |✅|✅|❌||N/A|
@@ -100,6 +100,16 @@ http://atcoder.jp/user/Szarny
 |  ABC087  |✅|✅|✅|❌|250th|
 |  ABC088  |✅|✅|✅|✅|318th|
 |  ABC089  |✅|✅|✅|❌|N/A|
+|  ABC090  |||||N/A|
+|  ABC091  |||||N/A|
+|  ABC092  |||||N/A|
+|  ABC093  |||||N/A|
+|  ABC094  |||||N/A|
+|  ABC095  |||||N/A|
+|  ABC096  |||||N/A|
+|  ABC097  |||||N/A|
+|  ABC098  |||||N/A|
+|  ABC099  |✅|✅|✅|✅|391th|
 
 ## AtCoder Regular Contest
 
