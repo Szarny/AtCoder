@@ -28,6 +28,7 @@ http://atcoder.jp/user/Szarny
 |  ABC088  |✅|✅|✅|✅|318th|
 |  ABC089  |✅|✅|✅|❌|N/A|
 |  ABC099  |✅|✅|✅|✅|391th|
+|  ABC100  |✅|✅|✅|✅|N/A|
 
 ## AtCoder Regular Contest
 
