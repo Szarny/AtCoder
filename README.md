@@ -27,6 +27,7 @@ http://atcoder.jp/user/Szarny
 |  ABC087  |✅|✅|✅|❌|250th|
 |  ABC088  |✅|✅|✅|✅|318th|
 |  ABC089  |✅|✅|✅|❌|N/A|
+|  ABC098  |✅|✅|✅|❌|N/A|
 |  ABC099  |✅|✅|✅|✅|391th|
 |  ABC100  |✅|✅|✅|✅|N/A|
 |  ABC101  |✅|✅|✅|❌|N/A|
