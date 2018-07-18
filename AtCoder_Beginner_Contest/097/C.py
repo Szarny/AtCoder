@@ -22,6 +22,14 @@ def to_bin(x):
 dp = None
 
 def main():
-    pass
+    S = input()
+    K = int(input())
+
+    A = []
+    for i in range(len(S)):
+        for j in range(i+1, min(i+6, len(S)+1)):
+            A.append(S[i:j])
+
+    print(sorted(list(set(A)))[K-1])
 
 main()

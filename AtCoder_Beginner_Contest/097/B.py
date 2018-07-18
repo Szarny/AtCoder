@@ -22,6 +22,18 @@ def to_bin(x):
 dp = None
 
 def main():
-    pass
+    x = int(input())
+
+    A = [1]
+    for a in range(2, 100):
+        for b in range(2, 10000):
+            if a ** b <= 1000:
+                A.append(a ** b)
+            else:
+                break
+
+    print(sorted(filter(lambda a: a<=x, A))[-1])
+
+
 
 main()

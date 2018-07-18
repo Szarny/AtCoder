@@ -22,6 +22,11 @@ def to_bin(x):
 dp = None
 
 def main():
-    pass
+    a, b, c, d = [int(_) for _ in input().split()]
+
+    if abs(a-c) <= d or (abs(a-b) <= d and abs(b-c) <= d):
+        print("Yes")
+    else:
+        print("No")
 
 main()
