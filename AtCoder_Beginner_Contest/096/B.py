@@ -22,6 +22,12 @@ def to_bin(x):
 dp = None
 
 def main():
-    pass
+    A = list(map(int, input().split()))
+    K = int(input())
+
+    for i in range(K):
+        A[A.index(max(A))] *= 2
+
+    print(sum(A))
 
 main()

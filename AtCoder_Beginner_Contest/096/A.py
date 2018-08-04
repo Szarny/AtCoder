@@ -22,6 +22,11 @@ def to_bin(x):
 dp = None
 
 def main():
-    pass
+    a, b = map(int, input().split())
+
+    if a <= b:
+        print(a)
+    else:
+        print(a-1)
 
 main()
