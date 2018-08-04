@@ -17,6 +17,9 @@ def chkprint(*args):
 def to_bin(x):
     return bin(x)[2:]
 
+def li_input():
+    return [int(_) for _ in input().split()]
+
 # --------------------------------------------
 
 dp = None
