@@ -46,8 +46,15 @@ def main():
         S[1].append(Points[i] * Questions[i][0] + Questions[i][1])
 
     t = 0
+    flg = False
     while True:
-        for i in range(D)
+        for i in range(D):
+            if S[0][i] >= G:
+                t += math.ceil(G / Questions[i][0])
+                flg = True
+                break
+
+            if S[1][i] >= G:
 
 
 main()
