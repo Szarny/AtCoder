@@ -1,7 +1,7 @@
 # Szarny/AtCoder
 
 AtCoder Contest Records.
-http://atcoder.jp/user/Szarny  
+http://beta.atcoder.jp/user/Szarny  
 
 # Scores
 https://atcoderapps.herokuapp.com/atcoderperformances/show_graph/?username=Szarny&rivalname=
