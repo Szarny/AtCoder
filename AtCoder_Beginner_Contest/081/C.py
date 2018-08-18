@@ -8,57 +8,47 @@ import inspect
 # Set max recursion limit
 sys.setrecursionlimit(10000)
 
+
 # Debug output
 def chkprint(*args):
-    names = {id(v):k for k,v in inspect.currentframe().f_back.f_locals.items()}
-    print(', '.join(names.get(id(arg),'???')+' = '+repr(arg) for arg in args))
+    names = {
+        id(v): k
+        for k, v in inspect.currentframe().f_back.f_locals.items()
+    }
+    print(', '.join(
+        names.get(id(arg), '???') + ' = ' + repr(arg) for arg in args))
+
 
 # Binary converter
 def to_bin(x):
     return bin(x)[2:]
 
-# Set 2 dimension list
-def dim2input(N):
-    li = []
-    for _ in range(N):
-        li.append(list(map(int, input())))
-    return li
 
-""" input template
-S = input()
-N = int(input())
-L = list(map(int, input().split()))
-a, b = list(map(int, input().split()))
-SL = list(input())
-"""
+def li_input():
+    return [int(_) for _ in input().split()]
+
 
 # --------------------------------------------
 
 dp = None
 
+
 def main():
-    N, K = list(map(int, input().split()))
-    A = list(input().split())
+    N, K = li_input()
+    A = li_input()
 
     D = collections.defaultdict(lambda: 0)
+    C = []
 
     for a in A:
         D[a] += 1
 
-    L = []
     for v in D.values():
-        L.append(v)
+        C.append(v)
 
-    L.sort(reverse=True)
+    C.sort(reverse=True)
 
-    i = 0
-    S = 0
-    U = min(K, len(L))
-    while i < U:
-        S += L[i]
-        i += 1
-
-    print(sum(L) - S)
+    print(sum(C[K:]))
 
 
 main()

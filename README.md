@@ -24,6 +24,7 @@ https://atcoderapps.herokuapp.com/atcoderperformances/show_graph/?username=Szarn
 |  ABC006  |✅|✅|❌||N/A|
 |  ABC007  |✅|✅|✅|❌|N/A|
 |  ABC008  |✅|✅|❌||N/A|
+|  ABC081  |✅|✅|✅|✅|N/A|
 |  ABC082  |✅|✅|✅|❌|N/A|
 |  ABC083  |✅|✅|✅|✅|N/A|
 |  ABC084  |✅|✅|✅|❌|N/A|
@@ -32,6 +33,7 @@ https://atcoderapps.herokuapp.com/atcoderperformances/show_graph/?username=Szarn
 |  ABC087  |✅|✅|✅|❌|250th|
 |  ABC088  |✅|✅|✅|✅|318th|
 |  ABC089  |✅|✅|✅|❌|N/A|
+|  ABC090  |||||N/A|
 |  ABC091  |✅|✅|❌||N/A|
 |  ABC092  |✅|✅|✅||N/A|
 |  ABC093  |✅|✅|✅|❌|N/A|
