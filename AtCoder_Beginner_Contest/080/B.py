@@ -8,36 +8,38 @@ import inspect
 # Set max recursion limit
 sys.setrecursionlimit(10000)
 
+
 # Debug output
 def chkprint(*args):
-    names = {id(v):k for k,v in inspect.currentframe().f_back.f_locals.items()}
-    print(', '.join(names.get(id(arg),'???')+' = '+repr(arg) for arg in args))
+    names = {
+        id(v): k
+        for k, v in inspect.currentframe().f_back.f_locals.items()
+    }
+    print(', '.join(
+        names.get(id(arg), '???') + ' = ' + repr(arg) for arg in args))
+
 
 # Binary converter
 def to_bin(x):
     return bin(x)[2:]
 
-# Set 2 dimension list
-def dim2input(N):
-    li = []
-    for _ in range(N):
-        li.append(list(map(int, input())))
-    return li
+
+def li_input():
+    return [int(_) for _ in input().split()]
+
 
 # --------------------------------------------
 
 dp = None
 
+
 def main():
-    N = input()
-    fx = 0
+    X = int(input())
 
-    for n in N:
-        fx += int(n)
-
-    if int(N) % fx == 0:
+    if X % sum(list(map(int, list(str(X))))) == 0:
         print("Yes")
     else:
         print("No")
+
 
 main()
