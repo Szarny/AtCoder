@@ -24,7 +24,14 @@ https://atcoderapps.herokuapp.com/atcoderperformances/show_graph/?username=Szarn
 |  ABC006  |✅|✅|❌||N/A|
 |  ABC007  |✅|✅|✅|❌|N/A|
 |  ABC008  |✅|✅|❌||N/A|
-|  ABC080  |✅|✅|✅|✅|N/A|
+|  ABC073  |✅|✅|✅||N/A|
+|  ABC074  |✅|✅|||N/A|
+|  ABC075  |✅|✅|✅|❌|N/A|
+|  ABC076  |✅|✅|✅||N/A|
+|  ABC077  |✅|✅|✅|❌|N/A|
+|  ABC078  |✅|✅|✅|✅|N/A|
+|  ABC079  |✅|✅|✅||N/A|
+|  ABC080  |✅|✅|❌|✅|N/A|
 |  ABC081  |✅|✅|✅|✅|N/A|
 |  ABC082  |✅|✅|✅|❌|N/A|
 |  ABC083  |✅|✅|✅|✅|N/A|
@@ -34,22 +41,23 @@ https://atcoderapps.herokuapp.com/atcoderperformances/show_graph/?username=Szarn
 |  ABC087  |✅|✅|✅|❌|250th|
 |  ABC088  |✅|✅|✅|✅|318th|
 |  ABC089  |✅|✅|✅|❌|N/A|
-|  ABC090  |||||N/A|
+|  ABC090  |✅|✅|✅||N/A|
 |  ABC091  |✅|✅|❌||N/A|
 |  ABC092  |✅|✅|✅||N/A|
 |  ABC093  |✅|✅|✅|❌|N/A|
 |  ABC094  |✅|✅|✅|✅|N/A|
-|  ABC095  |||||N/A|
+|  ABC095  |✅|✅|✅|❌|125th|
 |  ABC096  |✅|✅|✅|✅|N/A|
-|  ABC097  |||||N/A|
+|  ABC097  |✅|✅|✅||N/A|
 |  ABC098  |✅|✅|✅|❌|N/A|
 |  ABC099  |✅|✅|✅|✅|391th|
 |  ABC100  |✅|✅|✅|✅|N/A|
 |  ABC101  |✅|✅|✅|❌|N/A|
 |  ABC102  |✅|✅|✅|❌|N/A|
-|  ABC103  |||||N/A|
+|  ABC103  |✅|✅|✅||N/A|
 |  ABC104  |✅|✅|❌|❌|472th|
 |  ABC105  |✅|✅|✅|✅|504th|
+|  ABC105  |✅|✅|✅|❌|524th|
 
 ## AtCoder Regular Contest
 
