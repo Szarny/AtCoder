@@ -42,12 +42,12 @@ def main():
     for i in range(N):
         s, t, c = li_input()
 
-        for j in range(s, t):
+        for j in range(s - 1, t):
             A[c - 1][j] += 1
 
     for a in A:
         for i in range(1, len(a)):
-            if a[i] == 1 or (i != len(a) - 1 and a[i + 1]) == 1:
+            if a[i]:
                 S[i] += 1
 
     print(max(S))
