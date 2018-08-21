@@ -115,8 +115,7 @@ dp = None
 
 
 def main():
-    N, G, E = li_input()
-    P = li_input()
+    pass
 
 
 main()
