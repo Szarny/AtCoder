@@ -35,8 +35,26 @@ def gcd(n, m):
         return gcd(m, n % m)
 
 
+def gcd_list(L):
+    v = L[0]
+
+    for i in range(1, len(L)):
+        v = gcd(v, L[i])
+
+    return v
+
+
 def lcm(n, m):
     return (n * m) // gcd(n, m)
+
+
+def lcm_list(L):
+    v = L[0]
+
+    for i in range(1, len(L)):
+        v = lcm(v, L[i])
+
+    return v
 
 
 # Width First Search (+ Distance)
