@@ -115,7 +115,9 @@ dp = None
 
 
 def main():
-    pass
+    S = input()
+
+    print(S[0] + str(len(S) - 2) + S[-1])
 
 
 main()

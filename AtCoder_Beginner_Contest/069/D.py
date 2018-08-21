@@ -115,7 +115,36 @@ dp = None
 
 
 def main():
-    pass
+    H, W = li_input()
+    N = int(input())
+    A = li_input()
+
+    CS = [None]
+    cs = 0
+    for a in A:
+        cs += a
+        CS.append(cs)
+
+    B = [[0] * W for _ in range(H)]
+
+    B_idx = 0
+    c_color = 1
+
+    for i in range(H):
+        if i % 2 == 0:
+            rng = range(W)
+        else:
+            rng = range(W - 1, -1, -1)
+
+        for j in rng:
+            if B_idx == CS[c_color]:
+                c_color += 1
+
+            B[i][j] = c_color
+            B_idx += 1
+
+    for row in B:
+        print(" ".join(list(map(str, row))))
 
 
 main()

@@ -115,7 +115,8 @@ dp = None
 
 
 def main():
-    pass
+    n, m = li_input()
+    print((n - 1) * (m - 1))
 
 
 main()

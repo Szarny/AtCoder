@@ -115,7 +115,30 @@ dp = None
 
 
 def main():
-    pass
+    N = int(input())
+    L = li_input()
+
+    x1 = 0
+    x2 = 0
+    x4 = 0
+    for l in L:
+        if l % 4 == 0:
+            x4 += 1
+        elif l % 2 == 0:
+            x2 += 1
+        else:
+            x1 += 1
+
+    if x2 == 0:
+        if x1 - 1 <= x4:
+            print("Yes")
+        else:
+            print("No")
+    else:
+        if x1 <= x4:
+            print("Yes")
+        else:
+            print("No")
 
 
 main()
