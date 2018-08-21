@@ -42,8 +42,9 @@ def dfs_d(v, pre, dist):
     pre: １つ前のノード
     dist: 現在の距離
 
+    以下は別途用意する
     D: 隣接リスト(行列ではない)
-    D_dfs_d: dfs_d関数で用いる距離リスト
+    D_dfs_d: dfs_d関数で用いる，始点ノードから見た距離リスト
     """
 
     global D
