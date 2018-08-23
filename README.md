@@ -26,6 +26,7 @@ https://atcoderapps.herokuapp.com/atcoderperformances/show_graph/?username=Szarn
 |  ABC008  |✅|✅|❌||N/A|
 |  ABC009  |✅|✅|||N/A|A|
 |  ABC010  |✅|✅|✅||N/A|
+|  ABC068  |✅|✅|✅|✅|N/A|
 |  ABC069  |✅|✅|✅|✅|N/A|
 |  ABC070  |✅|✅|✅|✅|N/A|
 |  ABC071  |✅|✅|✅|✅|N/A|
