@@ -109,6 +109,36 @@ def dfs_d(v, pre, dist):
     return
 
 
+def sigma(N):
+    ans = 0
+    for i in range(1, N + 1):
+        ans += i
+    return ans
+
+
+class Combination:
+    def __init__(self, n, mod):
+
+        g1 = [1, 1]
+        g2 = [1, 1]
+        inverse = [0, 1]
+        for i in range(2, n + 1):
+            g1.append((g1[-1] * i) % mod)
+            inverse.append((-inverse[mod % i] * (mod // i)) % mod)
+            g2.append((g2[-1] * inverse[-1]) % mod)
+        self.MOD = mod
+        self.N = n
+        self.g1 = g1
+        self.g2 = g2
+        self.inverse = inverse
+
+    def __call__(self, n, r):
+        if (r < 0 or r > n):
+            return 0
+        r = min(r, n - r)
+        return self.g1[n] * self.g2[r] * self.g2[n - r] % self.MOD
+
+
 # --------------------------------------------
 
 dp = None
