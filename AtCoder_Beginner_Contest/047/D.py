@@ -145,7 +145,25 @@ dp = None
 
 
 def main():
-    pass
+    N, T = li_input()
+    A = li_input()
+
+    cmin = A[0]
+    ans = 0
+    maxp = -1
+
+    for i in range(1, len(A)):
+        if A[i] < cmin:
+            cmin = A[i]
+            continue
+
+        if A[i] - cmin > maxp:
+            ans = 1
+            maxp = A[i] - cmin
+        elif A[i] - cmin == maxp:
+            ans += 1
+
+    print(ans)
 
 
 main()
