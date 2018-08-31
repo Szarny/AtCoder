@@ -116,27 +116,28 @@ def sigma(N):
     return ans
 
 
-class Combination:
-    def __init__(self, n, mod):
+def comb(n, r):
+    if n - r < r: r = n - r
+    if r == 0: return 1
+    if r == 1: return n
 
-        g1 = [1, 1]
-        g2 = [1, 1]
-        inverse = [0, 1]
-        for i in range(2, n + 1):
-            g1.append((g1[-1] * i) % mod)
-            inverse.append((-inverse[mod % i] * (mod // i)) % mod)
-            g2.append((g2[-1] * inverse[-1]) % mod)
-        self.MOD = mod
-        self.N = n
-        self.g1 = g1
-        self.g2 = g2
-        self.inverse = inverse
+    numerator = [n - r + k + 1 for k in range(r)]
+    denominator = [k + 1 for k in range(r)]
 
-    def __call__(self, n, r):
-        if (r < 0 or r > n):
-            return 0
-        r = min(r, n - r)
-        return self.g1[n] * self.g2[r] * self.g2[n - r] % self.MOD
+    for p in range(2, r + 1):
+        pivot = denominator[p - 1]
+        if pivot > 1:
+            offset = (n - r) % p
+            for k in range(p - 1, r, p):
+                numerator[k - offset] /= pivot
+                denominator[k] /= pivot
+
+    result = 1
+    for k in range(r):
+        if numerator[k] > 1:
+            result *= int(numerator[k])
+
+    return result
 
 
 # --------------------------------------------
