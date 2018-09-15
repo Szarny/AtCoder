@@ -86,6 +86,7 @@ https://atcoderapps.herokuapp.com/atcoderperformances/show_graph/?username=Szarn
 
 | Contest | A | B | C | D | E | F | Rank |
 |:---------:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|  AGC026  |✅||||||475th|
 
 ## Others
 
