@@ -161,7 +161,17 @@ dp = None
 
 
 def main():
-    pass
+    N, M = li_input()
+    R = [0] * (N+1)
+    
+    for i in range(M):
+        a, b = li_input()
+        R[a] += 1
+        R[b] += 1
+
+    for i in range(1, N+1):
+        print(R[i])
+
 
 
 main()

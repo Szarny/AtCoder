@@ -161,7 +161,29 @@ dp = None
 
 
 def main():
-    pass
+    N, T = li_input()
+    Ts = li_input()
+
+    L = []
+
+    i = 0
+    while i < len(Ts):
+        l = [Ts[i]]
+
+        while i + 1 < len(Ts) and Ts[i + 1] - Ts[i] <= T:
+            i += 1
+
+        l.append(Ts[i] + T)
+        i += 1
+        L.append(l)
+
+    ans = 0
+
+    for l in L:
+        ans += (l[1] - l[0])
+
+    print(ans)
+
 
 
 main()

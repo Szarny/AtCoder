@@ -161,7 +161,14 @@ dp = None
 
 
 def main():
-    pass
+    A, B, C = li_input()
+
+    for i in range(1, B + 1):
+        if A * i % B == C:
+            print("YES")
+            return
+    
+    print("NO")
 
 
 main()

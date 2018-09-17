@@ -161,7 +161,23 @@ dp = None
 
 
 def main():
-    pass
+    N, K = li_input()
+    L = []
+    D = collections.defaultdict(lambda: 0)
 
+    for i in range(N):
+        a, b = li_input()
+        L.append(a)
+        D[a] += b
+
+    L = sorted(set(L))
+
+    c = 0
+    for l in L:
+        c += D[l]
+
+        if c >= K:
+            print(l)
+            return
 
 main()

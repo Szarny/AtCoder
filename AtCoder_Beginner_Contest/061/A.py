@@ -161,7 +161,8 @@ dp = None
 
 
 def main():
-    pass
+    A, B, C = li_input()
+    print("Yes") if B >= C >= A else print("No")
 
 
 main()

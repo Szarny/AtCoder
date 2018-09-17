@@ -161,7 +161,13 @@ dp = None
 
 
 def main():
-    pass
+    N, M = li_input()
+    L = collections.defaultdict(lambda: [])
+
+    for i in range(M):
+        a, b, c = li_input()
+        L[a].append((b, c))
+
 
 
 main()

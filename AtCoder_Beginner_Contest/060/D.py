@@ -161,7 +161,30 @@ dp = None
 
 
 def main():
-    pass
+    N, W = li_input()
+    A = [li_input() for _ in range(N)]  # w,v
 
+    dp = [[0] * (W + 1) for _ in range(N)]
+    
+    for i in range(W + 1):
+        if A[0][0] <= i:
+            dp[0][i] = A[0][1]
+
+    for i in range(1, N):
+        for j in range(W + 1):
+            weight, value = A[i][0], A[i][1]
+
+            if j - weight >= 0:
+                dp[i][j] = max(
+                    dp[i - 1][j],
+                    dp[i-1][j-weight] + value
+                )
+            else:
+                dp[i][j] = dp[i-1][j]
+
+    # for d in dp:
+    #     print(d)
+
+    print(max(dp[-1]))
 
 main()
