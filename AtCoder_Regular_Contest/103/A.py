@@ -147,13 +147,13 @@ def bisearch(L, target):
         mid = (low + high) // 2
         guess = L[mid]
         if guess == target:
-            return True, mid
+            return True
         elif guess < target:
             low = mid + 1
         elif guess > target:
             high = mid - 1
     if guess != target:
-        return False, -1
+        return False
 
 # --------------------------------------------
 
@@ -161,12 +161,48 @@ dp = None
 
 
 def main():
-    A, B, C = input().split()
+    N = int(input())
+    A = li_input()
+
+    A1 = A[::2]
+    A2 = A[1::2]
+
+    D1 = collections.defaultdict(lambda: 0)
+    D1_ = collections.defaultdict(lambda: 0)
+    D2 = collections.defaultdict(lambda: 0)
+    D2_ = collections.defaultdict(lambda: 0)
+
+    for a in A1:
+        D1[a] += 1
+        D1_[a] += 1
+
+    for a in A2:
+        D2[a] += 1
+        D2_[a] += 1
+
+    A1max = max(D1)
+    A2max = max(D2)
+
+    if A1max != A2max:
+        ans = 0
+        ans += len(A1) - D1[A1max]
+        ans += len(A2) - D2[A2max]
     
-    if A[-1] == B[0] and B[-1] == C[0]:
-        print("YES")
     else:
-        print("NO")
+        ans1, ans2 = 0, 0
+
+        D2_[A2max] = 0
+        A2max = max(D2_)
+        ans1 += len(A1) - D1[A1max]
+        ans1 += len(A2) - D2[A2max]
+
+        D1_[A1max] = 0
+        A1max = max(D1_)
+        ans2 += len(A1) - D1[A1max]
+        ans2 += len(A2) - D2[A2max]
+
+    print(min(ans1, ans2))
+    
 
 
 main()

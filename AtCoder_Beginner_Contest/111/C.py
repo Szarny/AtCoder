@@ -147,13 +147,13 @@ def bisearch(L, target):
         mid = (low + high) // 2
         guess = L[mid]
         if guess == target:
-            return True, mid
+            return True
         elif guess < target:
             low = mid + 1
         elif guess > target:
             high = mid - 1
     if guess != target:
-        return False, -1
+        return False
 
 # --------------------------------------------
 
@@ -161,12 +161,49 @@ dp = None
 
 
 def main():
-    A, B, C = input().split()
-    
-    if A[-1] == B[0] and B[-1] == C[0]:
-        print("YES")
-    else:
-        print("NO")
+    N = int(input())
+    V = li_input()
 
+    VE = V[::2]
+    VO = V[1::2]
+
+    DE = collections.defaultdict(lambda: 0)
+    DO = collections.defaultdict(lambda: 0)
+
+    for ve in VE:
+        DE[ve] += 1
+
+    for vo in VO:
+        DO[vo] += 1
+
+    E1_k, E1_v = max(DE, key=DE.get), DE[max(DE, key=DE.get)]
+    O1_k, O1_v = max(DO, key=DO.get), DO[max(DO, key=DO.get)]
+
+    DE[max(DE, key=DE.get)] = 0
+    DO[max(DO, key=DO.get)] = 0
+
+    E2_k, E2_v = max(DE, key=DE.get), DE[max(DE, key=DE.get)]
+    O2_k, O2_v = max(DO, key=DO.get), DO[max(DO, key=DO.get)]
+
+    if E1_k != O1_k:
+        ans = 0
+        ans += len(VE) - E1_v
+        ans += len(VO) - O1_v
+
+    else:
+        if set(VE) == set(VO) and len(set(VE)) == 1:
+            ans = len(VO)
+        else:
+            ans_prio_E = 0
+            ans_prio_E += len(VE) - E1_v
+            ans_prio_E += len(VO) - O2_v
+
+            ans_prio_O = 0
+            ans_prio_O += len(VE) - E2_v
+            ans_prio_O += len(VO) - O1_v
+
+            ans = min(ans_prio_E, ans_prio_O)
+    
+    print(ans)
 
 main()

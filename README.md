@@ -79,6 +79,7 @@ https://atcoderapps.herokuapp.com/atcoderperformances/show_graph/?username=Szarn
 |  ABC108  |||||N/A|
 |  ABC109  |✅|✅|✅|✅|708th|
 |  ABC110  |✅|✅|✅|❌|463th|
+|  ABC111  |✅|✅|✅|❌|N/A|
 
 ## AtCoder Regular Contest
 

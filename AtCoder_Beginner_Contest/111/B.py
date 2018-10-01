@@ -147,26 +147,32 @@ def bisearch(L, target):
         mid = (low + high) // 2
         guess = L[mid]
         if guess == target:
-            return True, mid
+            return True
         elif guess < target:
             low = mid + 1
         elif guess > target:
             high = mid - 1
     if guess != target:
-        return False, -1
+        return False
 
 # --------------------------------------------
 
 dp = None
 
 
+def f(n):
+    n = str(n)
+
+    return n[0] == n[1] == n[2]
+
+
 def main():
-    A, B, C = input().split()
+    N = int(input())
+
+    while not f(N):
+        N += 1
     
-    if A[-1] == B[0] and B[-1] == C[0]:
-        print("YES")
-    else:
-        print("NO")
+    print(N)
 
 
 main()
