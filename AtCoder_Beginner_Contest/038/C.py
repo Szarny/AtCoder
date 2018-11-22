@@ -161,7 +161,20 @@ dp = None
 
 
 def main():
-    pass
+    N = int(input())
+    A = li_input()
+    D = collections.defaultdict(lambda: 0)
+
+    clen = 1
+    ans = N
+    for i in range(1, N):
+        if A[i-1] < A[i]:
+            ans += clen
+            clen += 1
+        else:
+            clen = 1
+
+    print(ans)
 
 
 main()
