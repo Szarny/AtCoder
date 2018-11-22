@@ -161,7 +161,17 @@ dp = None
 
 
 def main():
-    pass
+    N, Q = li_input()
+    A = [0] * N
+
+    for i in range(Q):
+        l, r, t = li_input()
+
+        for j in range(l-1, r):
+            A[j] = t
+    
+    for a in A:
+        print(a)
 
 
 main()

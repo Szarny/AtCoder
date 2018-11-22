@@ -161,7 +161,21 @@ dp = None
 
 
 def main():
-    pass
+    N, K = li_input()
+    A = li_input()
+
+    ans = 0
+    for i in range(K):
+        ans += A[i]
+
+    c_sum = ans
+    for i in range(K, N):
+        c_sum += A[i]
+        c_sum -= A[i-K]
+        ans += c_sum
+    
+    print(ans)
+    
 
 
 main()

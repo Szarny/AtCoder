@@ -161,7 +161,8 @@ dp = None
 
 
 def main():
-    pass
+    a, b, c = li_input()
+    print(c // min(a, b))
 
 
 main()
