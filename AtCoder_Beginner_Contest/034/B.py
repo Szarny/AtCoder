@@ -161,7 +161,8 @@ dp = None
 
 
 def main():
-    pass
+    n = int(sys.stdin.readline())
 
+    print(n-1) if n % 2 == 0 else print(n)
 
 main()

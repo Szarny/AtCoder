@@ -1,9 +1,9 @@
-import sys
-import math
-import collections
-import itertools
 import array
+import collections
 import inspect
+import itertools
+import math
+import sys
 
 # Set max recursion limit
 sys.setrecursionlimit(1000000)
@@ -161,7 +161,19 @@ dp = None
 
 
 def main():
-    pass
+    W, H = li_input()
+    l = max(W, H) - 1
+    s = min(W, H) - 1
 
+    ans = 1
+    div_ = 1
+
+    for x in range(l+s, l, -1):
+        ans *= x
+
+    for y in range(s, 1, -1):
+        div_ *= y
+
+    print((ans // div_) % (10**9 + 7))
 
 main()

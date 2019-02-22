@@ -161,7 +161,9 @@ dp = None
 
 
 def main():
-    pass
+    x, y = li_input()
+
+    print("Better") if y > x else print("Worse")
 
 
 main()

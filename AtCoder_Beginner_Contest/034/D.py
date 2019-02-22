@@ -161,7 +161,39 @@ dp = None
 
 
 def main():
-    pass
+    N, K = li_input()
+    A = [li_input() for _ in range(N)]
+
+    L = 0
+    R = 100
+    ans = -1
+
+    for _ in range(1000):
+        C_water = 0
+        C_salt  = 0
+
+        M = (L + R) / 2
+        P = 0
+
+        for a in A:
+            a_water = a[0] * (100 - a[1]) * 0.01
+            a_salt  = a[0] * a[1] * 0.01
+
+            n_water = C_water + a_water
+            n_salt  = C_salt + a_salt
+
+            if n_salt / (n_salt + n_water) > P:
+                C_water += a_water
+                C_salt += a_salt
+                P = n_salt / (n_salt + n_water)
+
+        print(C_water, C_salt)
+
+        if P > ans:
+            ans = P
+
+    print(ans)
+
 
 
 main()
