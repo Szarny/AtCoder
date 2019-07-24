@@ -101,7 +101,23 @@ dp = None
 
 
 def main():
-    pass
+    N = int(input())
+    A = sorted([int(i) for i in input().split()], reverse=True)
+
+    ans = 10**100
+    ans_i = -1
+
+    for i in range(len(A)-1):
+        g = gcd(A[-1], A[i])
+
+        if g < ans:
+            ans = g
+            ans_i = i
+
+    print(max(
+        gcd_list(A[:-1]),
+        gcd_list(A[:ans_i] + A[ans_i+1:])
+    ))
 
 
 main()

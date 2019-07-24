@@ -101,7 +101,57 @@ dp = None
 
 
 def main():
-    pass
+    T = int(input())
+
+    for t in range(T):
+        P, Q = li_input()
+
+        M = [[0 for i in range(Q+1)] for j in range(Q+1)]
+
+        for p in range(P):
+            x,y,d = input().split()
+            
+            x = int(x)
+            y = int(y)
+
+            if d == "N":
+                for i in range(y+1, Q+1):
+                    for j in range(Q+1):
+                        M[i][j] += 1
+
+            if d == "S":
+                for i in range(y):
+                    for j in range(Q+1):
+                        M[i][j] += 1
+
+            if d == "E":
+                for i in range(Q+1):
+                    for j in range(x+1, Q+1):
+                        M[i][j] += 1
+
+            if d == "W":
+                for i in range(Q+1):
+                    for j in range(x):
+                        M[i][j] += 1
+
+        D = collections.defaultdict(lambda: [])
+
+        for i in range(Q+1):
+            for j in range(Q+1):
+                D[M[i][j]].append([i, j])
+
+        L = D[max(D.keys())]
+
+        ans_l = None
+        ans_d = 10**10
+        for l in L:
+            if sum(l) < ans_d:
+                ans_d = sum(l)
+                ans_l = l
+
+        print(" ".join(list(map(str, reversed(ans_l)))))
+
+        
 
 
 main()

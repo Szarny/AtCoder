@@ -101,7 +101,13 @@ dp = None
 
 
 def main():
-    pass
+    a = [int(input()) for _ in range(6)]
+
+   
+    if a[-2] - a[0] <= a[-1]:
+        print("Yay!")
+    else:
+        print(":(")
 
 
 main()

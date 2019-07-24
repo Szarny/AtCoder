@@ -101,7 +101,20 @@ dp = None
 
 
 def main():
-    pass
+    S = input()
+
+    ans = 0
+    cs = int(S[0])
+
+    for s in S[1:]:
+        s = int(s)
+        if s == cs:
+            ans += 1
+            cs = 1 - s
+        else:
+            cs = s
+
+    print(ans)
 
 
 main()

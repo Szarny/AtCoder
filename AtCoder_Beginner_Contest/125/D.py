@@ -101,7 +101,16 @@ dp = None
 
 
 def main():
-    pass
+    N = int(input())
+    A = li_input()
+    B = [abs(a) for a in A]
+
+    n_negative = len([a for a in A if a < 0])
+
+    if n_negative % 2 == 1:
+        print(sum(B) - 2 * min(B))
+    else:
+        print(sum(B))
 
 
 main()

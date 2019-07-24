@@ -101,7 +101,18 @@ dp = None
 
 
 def main():
-    pass
+    N = int(input())
+    H = li_input()
+
+    hmax = H[0]
+    ans = 1
+
+    for h in H[1:]:
+        if h >= hmax:
+            ans += 1
+            hmax = h
+    
+    print(ans)
 
 
 main()

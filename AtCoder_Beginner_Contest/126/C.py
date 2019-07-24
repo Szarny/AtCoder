@@ -101,7 +101,18 @@ dp = None
 
 
 def main():
-    pass
+    N, K = li_input()
 
+    ans = 0
+
+    for p in range(1, N+1):
+        t = 0
+        while p < K:
+            p *= 2
+            t += 1
+        
+        ans += (0.5 ** t) / N
+    
+    print(ans)
 
 main()

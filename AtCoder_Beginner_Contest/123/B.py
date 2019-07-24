@@ -101,7 +101,9 @@ dp = None
 
 
 def main():
-    pass
+    A = [int(input()) for _ in range(5)]
+
+    print(max(A))
 
 
 main()

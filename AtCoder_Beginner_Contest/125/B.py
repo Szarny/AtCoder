@@ -101,7 +101,16 @@ dp = None
 
 
 def main():
-    pass
+    N = int(input())
+    V = li_input()
+    C = li_input()
+
+    ans = 0
+
+    for i in range(N):
+        ans += max(0, V[i] - C[i])
+
+    print(ans)
 
 
 main()

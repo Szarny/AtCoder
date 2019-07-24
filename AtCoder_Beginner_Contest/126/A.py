@@ -101,7 +101,9 @@ dp = None
 
 
 def main():
-    pass
+    N, K = li_input()
+    S = input()
 
+    print(S[:K-1] + S[K-1].lower() + S[K:])
 
 main()

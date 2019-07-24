@@ -101,7 +101,22 @@ dp = None
 
 
 def main():
-    pass
+    S = input()
+
+    front = int(S[:2])
+    rear = int(S[2:])
+
+    front_mm = 1 <= front <= 12
+    rear_mm = 1 <= rear <= 12
+
+    if front_mm and rear_mm:
+        print("AMBIGUOUS")
+    elif front_mm:
+        print("MMYY")
+    elif rear_mm:
+        print("YYMM")
+    else:
+        print("NA")
 
 
 main()

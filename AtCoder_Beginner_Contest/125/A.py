@@ -101,7 +101,8 @@ dp = None
 
 
 def main():
-    pass
+    A, B, T = li_input()
+    print((T // A) * B)
 
 
 main()
