@@ -1,9 +1,9 @@
-import sys
-import math
-import collections
-import itertools
 import array
+import collections
 import inspect
+import itertools
+import math
+import sys
 
 # Set max recursion limit
 sys.setrecursionlimit(1000000)
@@ -11,15 +11,10 @@ sys.setrecursionlimit(1000000)
 
 # Debug output
 def chkprint(*args):
-    names = {
-        id(v): k
-        for k, v in inspect.currentframe().f_back.f_locals.items()
-    }
-    print(', '.join(
-        names.get(id(arg), '???') + ' = ' + repr(arg) for arg in args))
+    names = {id(v): k for k, v in inspect.currentframe().f_back.f_locals.items()}
+    print(", ".join(names.get(id(arg), "???") + " = " + repr(arg) for arg in args))
 
 
-# Binary converter
 def to_bin(x):
     return bin(x)[2:]
 
@@ -56,10 +51,14 @@ def lcm_list(L):
 
     return v
 
+
 def comb(n, r):
-    if n - r < r: r = n - r
-    if r == 0: return 1
-    if r == 1: return n
+    if n - r < r:
+        r = n - r
+    if r == 0:
+        return 1
+    if r == 1:
+        return n
 
     numerator = [n - r + k + 1 for k in range(r)]
     denominator = [k + 1 for k in range(r)]
@@ -79,15 +78,16 @@ def comb(n, r):
 
     return result
 
+
 def bisearch(L, target):
     low = 0
     high = len(L) - 1
-    
+
     while low <= high:
         mid = (low + high) // 2
         guess = L[mid]
         if guess == target:
-            return True
+            return mid
         elif guess < target:
             low = mid + 1
         elif guess > target:
@@ -95,22 +95,14 @@ def bisearch(L, target):
     if guess != target:
         return False
 
+
 # --------------------------------------------
 
 dp = None
 
 
 def main():
-    N = int(input())
-    A = li_input()
-    B = [abs(a) for a in A]
-
-    n_negative = len([a for a in A if a < 0])
-
-    if n_negative % 2 == 1:
-        print(sum(B) - 2 * min(B))
-    else:
-        print(sum(B))
+    pass
 
 
 main()

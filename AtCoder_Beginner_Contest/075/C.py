@@ -1,80 +1,108 @@
-import sys
-import math
-import collections
-import itertools
 import array
+import collections
 import inspect
-import copy
+import itertools
+import math
+import sys
 
 # Set max recursion limit
-sys.setrecursionlimit(10000)
+sys.setrecursionlimit(1000000)
+
 
 # Debug output
 def chkprint(*args):
-    names = {id(v):k for k,v in inspect.currentframe().f_back.f_locals.items()}
-    print(', '.join(names.get(id(arg),'???')+' = '+repr(arg) for arg in args))
+    names = {id(v): k for k, v in inspect.currentframe().f_back.f_locals.items()}
+    print(", ".join(names.get(id(arg), "???") + " = " + repr(arg) for arg in args))
 
-# Binary converter
+
 def to_bin(x):
     return bin(x)[2:]
 
-# Set 2 dimension list
-def dim2input(N):
-    li = []
-    for _ in range(N):
-        li.append(input().split())
-    return li
+
+def li_input():
+    return [int(_) for _ in sys.stdin.readline().split()]
+
+
+def gcd(n, m):
+    if n % m == 0:
+        return m
+    else:
+        return gcd(m, n % m)
+
+
+def gcd_list(L):
+    v = L[0]
+
+    for i in range(1, len(L)):
+        v = gcd(v, L[i])
+
+    return v
+
+
+def lcm(n, m):
+    return (n * m) // gcd(n, m)
+
+
+def lcm_list(L):
+    v = L[0]
+
+    for i in range(1, len(L)):
+        v = lcm(v, L[i])
+
+    return v
+
+
+def comb(n, r):
+    if n - r < r:
+        r = n - r
+    if r == 0:
+        return 1
+    if r == 1:
+        return n
+
+    numerator = [n - r + k + 1 for k in range(r)]
+    denominator = [k + 1 for k in range(r)]
+
+    for p in range(2, r + 1):
+        pivot = denominator[p - 1]
+        if pivot > 1:
+            offset = (n - r) % p
+            for k in range(p - 1, r, p):
+                numerator[k - offset] /= pivot
+                denominator[k] /= pivot
+
+    result = 1
+    for k in range(r):
+        if numerator[k] > 1:
+            result *= int(numerator[k])
+
+    return result
+
+
+def bisearch(L, target):
+    low = 0
+    high = len(L) - 1
+
+    while low <= high:
+        mid = (low + high) // 2
+        guess = L[mid]
+        if guess == target:
+            return mid
+        elif guess < target:
+            low = mid + 1
+        elif guess > target:
+            high = mid - 1
+    if guess != target:
+        return False
+
 
 # --------------------------------------------
 
 dp = None
 
-def A_is_connected(A, edge, n_V):
-    A[edge[0]][edge[1]] = False
-    A[edge[1]][edge[0]] = False
-
-    queue = [1]
-    reached = [1]
-
-    while len(queue) != 0:
-        new_queue = []
-        for q in queue:
-            for i, is_connected in enumerate(A[q]):
-                if is_connected and i not in reached:
-                    new_queue.append(i)
-                    reached.append(i)
-
-        queue = new_queue
-
-    return len(reached) == n_V
-
 
 def main():
-    n_V, n_E = list(map(int, input().split()))
-
-    A = []
-    for i in range(n_V+1):
-        A.append([])
-        for j in range(n_V+1):
-            A[i].append(False)
-
-    edges = []
-    for _ in range(n_E):
-        edges.append(list(map(int, input().split())))
-
-    for edge in edges:
-        A[edge[0]][edge[1]] = True
-        A[edge[1]][edge[0]] = True
-
-    n_bridge = 0
-
-    for edge in edges:
-        origin_A = copy.deepcopy(A)
-        if not A_is_connected(A, edge, n_V):
-            n_bridge += 1
-        A = origin_A
-
-    print(n_bridge)
+    pass
 
 
 main()

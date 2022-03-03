@@ -23,13 +23,13 @@ def main():
             n_question = input("[?] Number of questions : ")
         n_question = int(n_question)
 
-        directory_name = "./Others/{}_{}".format(contest_yyyymmdd,
-                                                 contest_name)
+        directory_name = "./Others/{}_{}".format(contest_yyyymmdd, contest_name)
         subprocess.call(["mkdir", directory_name])
 
         for question_i in range(n_question):
             directory_file_name = directory_name + "/{}.py".format(
-                question_head[question_i])
+                question_head[question_i]
+            )
 
             subprocess.call(["cp", "./Template.py", directory_file_name])
 
@@ -50,23 +50,21 @@ def main():
         n_question = int(n_question)
 
         if contest_name == "ABC":
-            directory_name = "./AtCoder_Beginner_Contest/{:03d}".format(
-                contest_number)
+            directory_name = "./AtCoder_Beginner_Contest/{:03d}".format(contest_number)
         elif contest_name == "ARC":
-            directory_name = "./AtCoder_Regular_Contest/{:03d}".format(
-                contest_number)
+            directory_name = "./AtCoder_Regular_Contest/{:03d}".format(contest_number)
         elif contest_name == "AGC":
-            directory_name = "./AtCoder_Grand_Contest/{:03d}".format(
-                contest_number)
+            directory_name = "./AtCoder_Grand_Contest/{:03d}".format(contest_number)
 
         subprocess.call(["mkdir", directory_name])
 
         for question_i in range(n_question):
             directory_file_name = directory_name + "/{}.py".format(
-                question_head[question_i])
+                question_head[question_i]
+            )
 
             subprocess.call(["cp", "./Template.py", directory_file_name])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

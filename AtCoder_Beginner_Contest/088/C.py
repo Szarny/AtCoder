@@ -1,95 +1,108 @@
-import sys
-import math
-import collections
-import itertools
 import array
+import collections
 import inspect
+import itertools
+import math
+import sys
 
 # Set max recursion limit
-sys.setrecursionlimit(10000)
+sys.setrecursionlimit(1000000)
+
 
 # Debug output
 def chkprint(*args):
-    names = {id(v):k for k,v in inspect.currentframe().f_back.f_locals.items()}
-    print(', '.join(names.get(id(arg),'???')+' = '+repr(arg) for arg in args))
+    names = {id(v): k for k, v in inspect.currentframe().f_back.f_locals.items()}
+    print(", ".join(names.get(id(arg), "???") + " = " + repr(arg) for arg in args))
 
-# Binary converter
+
 def to_bin(x):
     return bin(x)[2:]
 
-# Set 2 dimension list
-def dim2input(N):
-    li = []
-    for _ in range(N):
-        li.append(list(map(int, input())))
-    return li
 
-""" input template
-S = input()
-N = int(input())
-L = list(map(int, input().split()))
-a, b = list(map(int, input().split()))
-SL = list(input())
-"""
+def li_input():
+    return [int(_) for _ in sys.stdin.readline().split()]
+
+
+def gcd(n, m):
+    if n % m == 0:
+        return m
+    else:
+        return gcd(m, n % m)
+
+
+def gcd_list(L):
+    v = L[0]
+
+    for i in range(1, len(L)):
+        v = gcd(v, L[i])
+
+    return v
+
+
+def lcm(n, m):
+    return (n * m) // gcd(n, m)
+
+
+def lcm_list(L):
+    v = L[0]
+
+    for i in range(1, len(L)):
+        v = lcm(v, L[i])
+
+    return v
+
+
+def comb(n, r):
+    if n - r < r:
+        r = n - r
+    if r == 0:
+        return 1
+    if r == 1:
+        return n
+
+    numerator = [n - r + k + 1 for k in range(r)]
+    denominator = [k + 1 for k in range(r)]
+
+    for p in range(2, r + 1):
+        pivot = denominator[p - 1]
+        if pivot > 1:
+            offset = (n - r) % p
+            for k in range(p - 1, r, p):
+                numerator[k - offset] /= pivot
+                denominator[k] /= pivot
+
+    result = 1
+    for k in range(r):
+        if numerator[k] > 1:
+            result *= int(numerator[k])
+
+    return result
+
+
+def bisearch(L, target):
+    low = 0
+    high = len(L) - 1
+
+    while low <= high:
+        mid = (low + high) // 2
+        guess = L[mid]
+        if guess == target:
+            return mid
+        elif guess < target:
+            low = mid + 1
+        elif guess > target:
+            high = mid - 1
+    if guess != target:
+        return False
+
 
 # --------------------------------------------
 
 dp = None
 
+
 def main():
-    C = []
+    pass
 
-    for _ in range(3):
-        C.append(list(map(int, input().split())))
-
-    a1_limit = min(C[0])+1
-    a2_limit = min(C[1])+1
-    a3_limit = min(C[2])+1
-    b1_limit = min(C[0][0], C[1][0], C[2][0])+1
-    b2_limit = min(C[0][1], C[1][1], C[2][1])+1
-    b3_limit = min(C[0][2], C[1][2], C[2][2])+1
-
-    A1, A2, A3, B1, B2, B3 = [], [], [], [], [], []
-    for i in range(a1_limit):
-        A1.append(i)
-    for i in range(a2_limit):
-        A2.append(i)
-    for i in range(a3_limit):
-        A3.append(i)
-    for i in range(b1_limit):
-        B1.append(i)
-    for i in range(b2_limit):
-        B2.append(i)
-    for i in range(b3_limit):
-        B3.append(i)
-
-    for a1, a2, a3 in itertools.product(A1, A2, A3):
-        b1 = C[0][0] - a1
-        b2 = C[1][1] - a2
-        b3 = C[2][2] - a3
-
-        if a1 + b1 != C[0][0]:
-            continue
-        if a2 + b1 != C[1][0]:
-            continue
-        if a3 + b1 != C[2][0]:
-            continue
-        if a1 + b2 != C[0][1]:
-            continue
-        if a2 + b2 != C[1][1]:
-            continue
-        if a3 + b2 != C[2][1]:
-            continue
-        if a1 + b3 != C[0][2]:
-            continue
-        if a2 + b3 != C[1][2]:
-            continue
-        if a3 + b3 != C[2][2]:
-            continue
-
-        print("Yes")
-        return
-
-    print("No")
 
 main()

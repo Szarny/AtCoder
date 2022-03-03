@@ -1,41 +1,108 @@
+import array
+import collections
+import inspect
+import itertools
+import math
+import sys
+
+# Set max recursion limit
+sys.setrecursionlimit(1000000)
+
+
+# Debug output
+def chkprint(*args):
+    names = {id(v): k for k, v in inspect.currentframe().f_back.f_locals.items()}
+    print(", ".join(names.get(id(arg), "???") + " = " + repr(arg) for arg in args))
+
+
+def to_bin(x):
+    return bin(x)[2:]
+
+
+def li_input():
+    return [int(_) for _ in sys.stdin.readline().split()]
+
+
+def gcd(n, m):
+    if n % m == 0:
+        return m
+    else:
+        return gcd(m, n % m)
+
+
+def gcd_list(L):
+    v = L[0]
+
+    for i in range(1, len(L)):
+        v = gcd(v, L[i])
+
+    return v
+
+
+def lcm(n, m):
+    return (n * m) // gcd(n, m)
+
+
+def lcm_list(L):
+    v = L[0]
+
+    for i in range(1, len(L)):
+        v = lcm(v, L[i])
+
+    return v
+
+
+def comb(n, r):
+    if n - r < r:
+        r = n - r
+    if r == 0:
+        return 1
+    if r == 1:
+        return n
+
+    numerator = [n - r + k + 1 for k in range(r)]
+    denominator = [k + 1 for k in range(r)]
+
+    for p in range(2, r + 1):
+        pivot = denominator[p - 1]
+        if pivot > 1:
+            offset = (n - r) % p
+            for k in range(p - 1, r, p):
+                numerator[k - offset] /= pivot
+                denominator[k] /= pivot
+
+    result = 1
+    for k in range(r):
+        if numerator[k] > 1:
+            result *= int(numerator[k])
+
+    return result
+
+
+def bisearch(L, target):
+    low = 0
+    high = len(L) - 1
+
+    while low <= high:
+        mid = (low + high) // 2
+        guess = L[mid]
+        if guess == target:
+            return mid
+        elif guess < target:
+            low = mid + 1
+        elif guess > target:
+            high = mid - 1
+    if guess != target:
+        return False
+
+
+# --------------------------------------------
+
+dp = None
+
+
 def main():
-    Row, Col = list(map(int, input().split()))
+    pass
 
-    y_src, x_src = list(map(int, input().split()))
-    y_src -= 1
-    x_src -= 1
-    y_dst, x_dst = list(map(int, input().split()))
-    y_dst -= 1
-    x_dst -= 1
-
-    board = []
-    for r in range(Row):
-        board.append(list(input()))
-
-    queue = [[y_src, x_src]]
-
-    n_move = 0
-    delta_x = [-1, 0, 0, 1]
-    delta_y = [0, -1, 1, 0]
-
-    while len(queue) != 0:
-        next_queue = []
-
-        for item in queue:
-            if item[0] == y_dst and item[1] == x_dst:
-                print(n_move)
-                return
-
-            board[item[0]][item[1]] = n_move
-
-            for dx, dy in zip(delta_x, delta_y):
-                if (0 <= item[0]+dy < Row)  and \
-                    (0 <= item[1]+dx < Col) and \
-                    (board[item[0]+dy][item[1]+dx] == ".") and \
-                    ([item[0]+dy, item[1]+dx] not in next_queue):
-                    next_queue.append([item[0]+dy, item[1]+dx])
-
-        queue = next_queue
-        n_move += 1
 
 main()

@@ -1,30 +1,108 @@
+import array
+import collections
+import inspect
 import itertools
+import math
+import sys
 
-def fact(k):
+# Set max recursion limit
+sys.setrecursionlimit(1000000)
+
+
+# Debug output
+def chkprint(*args):
+    names = {id(v): k for k, v in inspect.currentframe().f_back.f_locals.items()}
+    print(", ".join(names.get(id(arg), "???") + " = " + repr(arg) for arg in args))
+
+
+def to_bin(x):
+    return bin(x)[2:]
+
+
+def li_input():
+    return [int(_) for _ in sys.stdin.readline().split()]
+
+
+def gcd(n, m):
+    if n % m == 0:
+        return m
+    else:
+        return gcd(m, n % m)
+
+
+def gcd_list(L):
+    v = L[0]
+
+    for i in range(1, len(L)):
+        v = gcd(v, L[i])
+
+    return v
+
+
+def lcm(n, m):
+    return (n * m) // gcd(n, m)
+
+
+def lcm_list(L):
+    v = L[0]
+
+    for i in range(1, len(L)):
+        v = lcm(v, L[i])
+
+    return v
+
+
+def comb(n, r):
+    if n - r < r:
+        r = n - r
+    if r == 0:
+        return 1
+    if r == 1:
+        return n
+
+    numerator = [n - r + k + 1 for k in range(r)]
+    denominator = [k + 1 for k in range(r)]
+
+    for p in range(2, r + 1):
+        pivot = denominator[p - 1]
+        if pivot > 1:
+            offset = (n - r) % p
+            for k in range(p - 1, r, p):
+                numerator[k - offset] /= pivot
+                denominator[k] /= pivot
+
     result = 1
-    for i in range(1, k+1):
-        result *= i
+    for k in range(r):
+        if numerator[k] > 1:
+            result *= int(numerator[k])
+
     return result
 
+
+def bisearch(L, target):
+    low = 0
+    high = len(L) - 1
+
+    while low <= high:
+        mid = (low + high) // 2
+        guess = L[mid]
+        if guess == target:
+            return mid
+        elif guess < target:
+            low = mid + 1
+        elif guess > target:
+            high = mid - 1
+    if guess != target:
+        return False
+
+
+# --------------------------------------------
+
+dp = None
+
+
 def main():
-    R, C = [int(_) for _ in input().split()]
-    X, Y = [int(_) for _ in input().split()]
-    D, L = [int(_) for _ in input().split()]
+    pass
 
-    # 面積を求める
-    area_all = R * C
-    area_section = X * Y
-
-    # 指定区画の中で空っぽの領域数を計算する
-    E = area_section - (D + L)
-
-    # 長方形の取り方のパターンを調べる
-    v_diff = R - X
-    h_diff = C - Y
-    pattern = (v_diff + 1) * (h_diff + 1)
-
-    result = (fact(E + D + L) // (fact(E) * fact(D) * fact(L))) * pattern
-
-    print(result % 1000000007)
 
 main()

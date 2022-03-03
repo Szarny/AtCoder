@@ -1,74 +1,108 @@
+import array
+import collections
+import inspect
+import itertools
 import math
-def my_round(x, d=0):
-    p = 10 ** d
-    return float(math.floor((x * p) + math.copysign(0.5, x)))/p
+import sys
+
+# Set max recursion limit
+sys.setrecursionlimit(1000000)
+
+
+# Debug output
+def chkprint(*args):
+    names = {id(v): k for k, v in inspect.currentframe().f_back.f_locals.items()}
+    print(", ".join(names.get(id(arg), "???") + " = " + repr(arg) for arg in args))
+
+
+def to_bin(x):
+    return bin(x)[2:]
+
+
+def li_input():
+    return [int(_) for _ in sys.stdin.readline().split()]
+
+
+def gcd(n, m):
+    if n % m == 0:
+        return m
+    else:
+        return gcd(m, n % m)
+
+
+def gcd_list(L):
+    v = L[0]
+
+    for i in range(1, len(L)):
+        v = gcd(v, L[i])
+
+    return v
+
+
+def lcm(n, m):
+    return (n * m) // gcd(n, m)
+
+
+def lcm_list(L):
+    v = L[0]
+
+    for i in range(1, len(L)):
+        v = lcm(v, L[i])
+
+    return v
+
+
+def comb(n, r):
+    if n - r < r:
+        r = n - r
+    if r == 0:
+        return 1
+    if r == 1:
+        return n
+
+    numerator = [n - r + k + 1 for k in range(r)]
+    denominator = [k + 1 for k in range(r)]
+
+    for p in range(2, r + 1):
+        pivot = denominator[p - 1]
+        if pivot > 1:
+            offset = (n - r) % p
+            for k in range(p - 1, r, p):
+                numerator[k - offset] /= pivot
+                denominator[k] /= pivot
+
+    result = 1
+    for k in range(r):
+        if numerator[k] > 1:
+            result *= int(numerator[k])
+
+    return result
+
+
+def bisearch(L, target):
+    low = 0
+    high = len(L) - 1
+
+    while low <= high:
+        mid = (low + high) // 2
+        guess = L[mid]
+        if guess == target:
+            return mid
+        elif guess < target:
+            low = mid + 1
+        elif guess > target:
+            high = mid - 1
+    if guess != target:
+        return False
+
+
+# --------------------------------------------
+
+dp = None
+
 
 def main():
-    deg, dis = [int(_) for _ in input().split()]
+    pass
 
-    result_deg = ""
-    deg *= 10
-    if 1125 <= deg < 3375:
-        result_deg = "NNE"
-    elif deg < 5625:
-        result_deg = "NE"
-    elif deg < 7875:
-        result_deg = "ENE"
-    elif deg < 10125:
-        result_deg = "E"
-    elif deg < 12375:
-        result_deg = "ESE"
-    elif deg < 14625:
-        result_deg = "SE"
-    elif deg < 16875:
-        result_deg = "SSE"
-    elif deg < 19125:
-        result_deg = "S"
-    elif deg < 21375:
-        result_deg = "SSW"
-    elif deg < 23625:
-        result_deg = "SW"
-    elif deg < 25875:
-        result_deg = "WSW"
-    elif deg < 28125:
-        result_deg = "W"
-    elif deg < 30375:
-        result_deg = "WNW"
-    elif deg < 32625:
-        result_deg = "NW"
-    elif deg < 34875:
-        result_deg = "NNW"
-    else:
-        result_deg = "N"
-
-    if dis < 0.2*60+3:
-        result_deg = "C"
-        result_dis = 0
-    elif dis < 1.5*60+3:
-        result_dis = 1
-    elif dis < 3.3*60+3:
-        result_dis = 2
-    elif dis < 5.4*60+3:
-        result_dis = 3
-    elif dis < 7.9*60+3:
-        result_dis = 4
-    elif dis < 10.7*60+3:
-        result_dis = 5
-    elif dis < 13.8*60+3:
-        result_dis = 6
-    elif dis < 17.1*60+3:
-        result_dis = 7
-    elif dis < 20.7*60+3:
-        result_dis = 8
-    elif dis < 24.4*60+3:
-        result_dis = 9
-    elif dis < 28.4*60+3:
-        result_dis = 10
-    elif dis < 32.6*60+3:
-        result_dis = 11
-    else:
-        result_dis = 12
-
-    print(result_deg, result_dis)
 
 main()
