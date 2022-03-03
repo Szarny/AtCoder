@@ -102,7 +102,14 @@ dp = None
 
 
 def main():
-    pass
+    abc = input()
+
+    ans = 0
+    ans += int(abc[0]) * 100 + int(abc[1]) * 10 + int(abc[2])
+    ans += int(abc[1]) * 100 + int(abc[2]) * 10 + int(abc[0])
+    ans += int(abc[2]) * 100 + int(abc[0]) * 10 + int(abc[1])
+
+    print(ans)
 
 
 main()

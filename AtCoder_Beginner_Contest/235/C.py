@@ -102,7 +102,24 @@ dp = None
 
 
 def main():
-    pass
+    N, Q = li_input()
+    A = li_input()
+
+    D = collections.defaultdict(lambda: 0)
+    for i, a in enumerate(A):
+        D[a] += 1
+        D[(a, D[a])] = i + 1
+
+    # print(D)
+
+    for q in range(Q):
+        x, k = li_input()
+
+        ans = D.get((x, k), None)
+        if ans is None:
+            print(-1)
+        else:
+            print(ans)
 
 
 main()

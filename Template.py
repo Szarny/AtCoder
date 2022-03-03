@@ -19,7 +19,7 @@ def to_bin(x):
     return bin(x)[2:]
 
 
-def li_input():
+def intlist_input():
     return [int(_) for _ in sys.stdin.readline().split()]
 
 

@@ -102,7 +102,17 @@ dp = None
 
 
 def main():
-    pass
+    N = int(input())
+    H = li_input()
+
+    ans = H[0]
+    for h in H[1:]:
+        if ans < h:
+            ans = h
+        else:
+            break
+
+    print(ans)
 
 
 main()

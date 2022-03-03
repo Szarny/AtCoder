@@ -102,7 +102,7 @@ dp = None
 
 
 def main():
-    pass
+    a, N = li_input()
 
 
 main()
